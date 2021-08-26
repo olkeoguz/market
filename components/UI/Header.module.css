@@ -35,7 +35,6 @@
   height: 100%;
   color: white;
   display: none;
-  cursor: pointer;
 }
 
 @media only screen and (max-width: 1096px) {

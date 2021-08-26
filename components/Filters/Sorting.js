@@ -24,9 +24,9 @@ const Sorting = () => {
       <div className={styles.Sorting}>
         <div>
           <input
-            type='checkbox'
+            type='radio'
             id='lowToHigh'
-            className={styles.checkbox}
+            className={styles.radio}
             onChange={handleChange}
             checked={option === 'lowToHigh'}
           />
@@ -35,9 +35,9 @@ const Sorting = () => {
 
         <div>
           <input
-            type='checkbox'
+            type='radio'
             id='highToLow'
-            className={styles.checkbox}
+            className={styles.radio}
             onChange={handleChange}
             checked={option === 'highToLow'}
           />
@@ -46,9 +46,9 @@ const Sorting = () => {
 
         <div>
           <input
-            type='checkbox'
+            type='radio'
             id='newToOld'
-            className={styles.checkbox}
+            className={styles.radio}
             onChange={handleChange}
             checked={option === 'newToOld'}
           />
@@ -57,9 +57,9 @@ const Sorting = () => {
 
         <div>
           <input
-            type='checkbox'
+            type='radio'
             id='oldToNew'
-            className={styles.checkbox}
+            className={styles.radio}
             onChange={handleChange}
             checked={option === 'oldToNew'}
           />

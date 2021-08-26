@@ -1,4 +1,5 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import Header from '../components/UI/Header';
 import Backdrop from '../components/UI/Backdrop';
@@ -11,11 +12,20 @@ import Sorting from '../components/filters/Sorting';
 import ProductList from '../components/products/ProductList';
 import Cart from '../components/cart/Cart';
 
+import { useDispatch } from 'react-redux';
+import * as productActions from '../store/actions/products';
+
 import styles from '../styles/Home.module.css';
 
-export default function Home() {
+export default function Home({ products }) {
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
   const scrollToProductsRef = useRef(null);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(productActions.setProducts(products));
+  }, [products]);
 
   const handleDrawerToggleClick = () => {
     setSideDrawerOpen((prevDrawerState) => !prevDrawerState);
@@ -54,3 +64,28 @@ export default function Home() {
     </>
   );
 }
+
+export const getServerSideProps = async () => {
+  try {
+    // const res = await fetch('https://my-market-db.herokuapp.com/items');
+    const res = await fetch('http://localhost:8000/items');
+
+    if (!res.ok) {
+      throw new Error('Something went wrong! Cannot fetch the products...');
+    }
+
+    const data = await res.json();
+
+    const products = data.map((item) => ({ ...item, id: uuidv4() }));
+
+    products.sort((a, b) => a.price - b.price);
+
+    return {
+      props: {
+        products,
+      },
+    };
+  } catch (error) {
+    throw error;
+  }
+};

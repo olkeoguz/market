@@ -44,7 +44,6 @@
 .Pagination button {
   background-color: inherit;
   color: var(--primary);
-  cursor: pointer;
 }
 
 .Pagination button span {

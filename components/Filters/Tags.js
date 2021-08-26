@@ -5,7 +5,7 @@ import * as productActions from '../../store/actions/products';
 
 import TagsSearchingResults from './TagSearchingResults';
 
-import styles from './Brands.module.css';
+import styles from './Brands_Tags.module.css';
 
 const Tags = () => {
   const { products, brandFilt } = useSelector((state) => state.products);
@@ -52,7 +52,7 @@ const Tags = () => {
   return (
     <>
       <h4 className={styles.title}>Tags</h4>
-      <div className={styles.Brands}>
+      <div className={styles.RadioContainer}>
         <input
           type='text'
           placeholder='Search tag'
@@ -61,7 +61,7 @@ const Tags = () => {
         />
         <div className={styles.inputContainer}>
           <input
-            type='checkbox'
+            type='radio'
             id='all'
             checked={tagFilter === 'all'}
             onChange={handleChange}

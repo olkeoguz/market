@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Brands.module.css';
+import styles from './Brands_Tags.module.css';
 
 const TagsSearchingResults = ({
   suggestions,
@@ -15,7 +15,7 @@ const TagsSearchingResults = ({
     listItems = tags.map((tag, index) => (
       <div key={index} className={styles.inputContainer}>
         <input
-          type='checkbox'
+          type='radio'
           id={tag}
           checked={tagFilter === `${tag}`}
           onChange={handleChange}
@@ -40,7 +40,7 @@ const TagsSearchingResults = ({
     listItems = suggestions.map((tag, index) => (
       <div key={index} className={styles.inputContainer}>
         <input
-          type='checkbox'
+          type='radio'
           id={tag}
           checked={tagFilter === `${tag}`}
           onChange={handleChange}

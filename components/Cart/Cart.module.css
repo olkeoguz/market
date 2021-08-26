@@ -42,7 +42,6 @@
   color: var(--primary);
   margin: 0 8px;
   font-size: 14px;
-  cursor: pointer;
 }
 
 .quantitiyContainer .btn:hover {
@@ -104,5 +103,4 @@
   color: red;
   border: 2px solid red;
   padding: 8px 12px;
-  cursor: pointer;
 }
