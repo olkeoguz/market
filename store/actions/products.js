@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export const fetchProducts = (sortingOption) => async (dispatch) => {
   try {
+    // const res = await fetch('https://my-market-db.herokuapp.com/items');
     const res = await fetch('http://localhost:8000/items');
 
     if (!res.ok) {

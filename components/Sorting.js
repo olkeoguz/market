@@ -14,10 +14,6 @@ const Sorting = () => {
 
   useEffect(() => {
     dispatch(productActions.sortProducts(option));
-  }, [option]);
-
-  useEffect(() => {
-    dispatch(productActions.sortProducts(option));
   }, [option, dispatch]);
 
   return (

@@ -16,6 +16,7 @@ li {
 button {
   border: none;
   cursor: pointer;
+  background-color:inherit;
 }
 
 * {
