@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../styles/Sorting.module.css';
+
 import { useDispatch } from 'react-redux';
-import * as productActions from '../store/actions/products';
+import * as productActions from '../../store/actions/products';
+
+import styles from './Sorting.module.css';
 
 const Sorting = () => {
   const [option, setOption] = useState('lowToHigh');

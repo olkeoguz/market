@@ -1,13 +1,15 @@
 import React from 'react';
-import styles from '../styles/Cart.module.css';
+import styles from './Cart.module.css';
+
 import {
   faMinus,
   faPlus,
   faShoppingCart,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { useDispatch, useSelector } from 'react-redux';
-import * as cartActions from '../store/actions/cart';
+import * as cartActions from '../../store/actions/cart';
 
 const Cart = () => {
   const { cartItems, cartTotal } = useSelector((state) => state.cart);
@@ -21,6 +23,7 @@ const Cart = () => {
   }
 
   const handleQuantity = (item, status) => {
+    console.log(cartItems);
     if (status === 'minus') {
       dispatch(cartActions.removeFromCart(item.id));
     } else {

@@ -1,9 +1,10 @@
 import React from 'react';
-import styles from '../styles/SideDrawer.module.css';
-import Brands from './Brands';
-import Cart from './Cart';
-import Sorting from './Sorting';
-import Tags from './Tags';
+
+import Brands from '../filters/Brands';
+import Sorting from '../filters/Sorting';
+import Tags from '../filters/Tags';
+
+import styles from './/SideDrawer.module.css';
 
 const SideDrawer = ({ show }) => {
   return (

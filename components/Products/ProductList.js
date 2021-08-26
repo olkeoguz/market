@@ -1,13 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import styles from '../styles/ProductList.module.css';
-import SingleProduct from './SingleProduct';
-import Pagination from '../components/Pagination';
-
 import { useRouter } from 'next/router';
 
-import * as productActions from '../store/actions/products';
+import SingleProduct from './SingleProduct';
+import Pagination from '../../components/Pagination/Pagination';
 
+import * as productActions from '../../store/actions/products';
 import { useSelector, useDispatch } from 'react-redux';
+
+import styles from './ProductList.module.css';
 
 const ProductList = ({ scrollToTop }) => {
   const [isLoading, setIsLoading] = useState(false);

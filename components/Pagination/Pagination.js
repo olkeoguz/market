@@ -1,10 +1,10 @@
-import styles from '../styles/Pagination.module.css';
+import styles from './Pagination.module.css';
+
 import {
   faChevronLeft,
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useRef } from 'react';
 
 const Pagination = ({ numPerPage, totalNum, paginate, currentPage }) => {
   const pageNumbers = [];
@@ -36,7 +36,11 @@ const Pagination = ({ numPerPage, totalNum, paginate, currentPage }) => {
             }
             onClick={() => paginate(number)}
           >
-            <span className={number === "..." ? styles.disabled : styles.pageLink}>{number}</span>
+            <span
+              className={number === '...' ? styles.disabled : styles.pageLink}
+            >
+              {number}
+            </span>
           </li>
         ))}
       </ul>

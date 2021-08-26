@@ -1,10 +1,16 @@
 import React from 'react';
-import styles from '../styles/Brands.module.css';
+import styles from './Brands.module.css';
 
-const SearchingResults = ({ suggestions, handleChange, searchText,list,filter }) => {
-    let listItems;
-    
-    if (searchText.length === 0) {
+const BrandsSearchingResults = ({
+  suggestions,
+  handleChange,
+  searchText,
+  list,
+  filter,
+}) => {
+  let listItems;
+
+  if (searchText.length === 0) {
     listItems = list.map((manu, index) => (
       <div key={index} className={styles.inputContainer}>
         <input
@@ -42,11 +48,7 @@ const SearchingResults = ({ suggestions, handleChange, searchText,list,filter })
     ));
   }
 
-  return (
-      <>
-      {listItems}
-      </>
-  )
+  return <>{listItems}</>;
 };
 
-export default SearchingResults;
+export default BrandsSearchingResults;

@@ -1,8 +1,11 @@
 import React from 'react';
-import styles from '../styles/SingleProduct.module.css';
 import Image from 'next/image';
-import ProductImage from '../assets/myProduct.png';
-import * as cartActions from '../store/actions/cart';
+
+import ProductImage from '../../assets/myProduct.png';
+
+import * as cartActions from '../../store/actions/cart';
+
+import styles from './SingleProduct.module.css';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -23,7 +26,12 @@ const SingleProduct = ({ product }) => {
       </div>
       <small className={styles.price}>₺ {product.price}</small>
       <p className={styles.name}>{product.name}</p>
-      <button className={styles.btn} onClick={() => dispatch(cartActions.addToCart(product))}>Add</button>
+      <button
+        className={styles.btn}
+        onClick={() => dispatch(cartActions.addToCart(product))}
+      >
+        Add
+      </button>
     </div>
   );
 };

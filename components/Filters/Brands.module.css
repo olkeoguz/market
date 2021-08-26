@@ -7,7 +7,7 @@
   padding: 26px 24px;
   height: 244px;
   overflow: scroll;
-  margin-bottom:24px;
+  margin-bottom: 24px;
 }
 
 .Brands::-webkit-scrollbar {
@@ -29,7 +29,7 @@
   margin-bottom: 12px;
   line-height: 17.7px;
   font-family: 'Open-Sans';
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .Brands input[type='text'] {

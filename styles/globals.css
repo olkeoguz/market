@@ -1,6 +1,5 @@
 html,
 body {
-  font-family: 'Open Sans', sans-serif;
   background-color: var(--background);
   font-size: 16px;
   scroll-behavior: smooth;
@@ -16,19 +15,21 @@ li {
 button {
   border: none;
   cursor: pointer;
-  background-color:inherit;
+  background-color: inherit;
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: 'Open Sans';
+  letter-spacing: 0.16px;
 }
 
 :root {
   --primary: #1ea4ce;
   --primary-hover: #147594;
-  --background: #e5e5e5;
+  --background: #fafafa;
   --grid-item-bg: #ffffff;
   --header: #697488;
 }
@@ -37,7 +38,7 @@ input[type='checkbox'] {
   width: 22px;
   height: 22px;
   -webkit-appearance: none;
-  border: 2px solid #DFDEE2;
+  border: 2px solid #dfdee2;
   margin-right: 12px;
   position: relative;
 }

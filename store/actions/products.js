@@ -5,7 +5,7 @@ export const FILTER_TAGS = 'FILTER_TAGS';
 export const FILTER_PRODUCTS = 'FILTER_PRODUCTS';
 import { v4 as uuidv4 } from 'uuid';
 
-export const fetchProducts = (sortingOption) => async (dispatch) => {
+export const fetchProducts = () => async (dispatch) => {
   try {
     // const res = await fetch('https://my-market-db.herokuapp.com/items');
     const res = await fetch('http://localhost:8000/items');
@@ -36,21 +36,7 @@ export const sortProducts = (sortingOption) => {
   };
 };
 
-// export const filterBrands = (filter) => {
-//   return {
-//     type: FILTER_BRANDS,
-//     filter,
-//   };
-// };
-
-// export const filterTags = (filter) => {
-//   return {
-//     type: FILTER_TAGS,
-//     filter,
-//   };
-// };
-
-export const filterProducts = (brandFilter="all",tagFilter="all") => {
+export const filterProducts = (brandFilter = 'all', tagFilter = 'all') => {
   return {
     type: FILTER_PRODUCTS,
     brandFilter,

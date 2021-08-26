@@ -6,10 +6,10 @@
   background-color: var(--grid-item-bg);
   position: sticky;
   top: 1rem;
-  margin-bottom:12px;
+  margin-bottom: 12px;
 }
 
-.CartMobile{
+.CartMobile {
   background-color: red;
 }
 
@@ -19,6 +19,17 @@
   align-items: center;
   margin-bottom: 35.77px;
   border-bottom: 1px solid var(--primary);
+}
+
+.namePrice small {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.namePrice p {
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .quantitiyContainer {
@@ -50,7 +61,7 @@
 }
 
 .quantity p {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
 }
 

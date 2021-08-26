@@ -1,14 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useState } from 'react';
+
 import { useSelector, useDispatch } from 'react-redux';
-import * as productActions from '../store/actions/products';
-import styles from '../styles/Brands.module.css';
-import SearchingResults from './SearchingResults';
+import * as productActions from '../../store/actions/products';
+
+import BrandsSearchingResults from './BrandsSearchingResults';
+
+import styles from './Brands.module.css';
 
 const Brands = () => {
-  const { products, brandFilt, tagFilt } = useSelector(
-    (state) => state.products
-  );
+  const { products, tagFilt } = useSelector((state) => state.products);
   const [brandFilter, setBrandFilter] = useState('all');
   const [searchText, setSearchText] = useState('');
   const [suggestions, setSuggestions] = useState([]);
@@ -17,24 +18,30 @@ const Brands = () => {
 
   let manuFacturersObj = {};
 
-  products.forEach((product) => {
-    // if product is in the object, increase the quantity
-    // else make the quantity of the product 1
-    if (manuFacturersObj[product.manufacturer]) {
-      manuFacturersObj = {
-        ...manuFacturersObj,
-        [product.manufacturer]: manuFacturersObj[product.manufacturer] + 1,
-      };
-    } else {
-      manuFacturersObj = { ...manuFacturersObj, [product.manufacturer]: 1 };
+  manuFacturersObj = useMemo(() => {
+    products.forEach((product) => {
+      // if product is in the object, increase the quantity
+      // else make the quantity of the product 1
+      if (manuFacturersObj[product.manufacturer]) {
+        manuFacturersObj = {
+          ...manuFacturersObj,
+          [product.manufacturer]: manuFacturersObj[product.manufacturer] + 1,
+        };
+      } else {
+        manuFacturersObj = { ...manuFacturersObj, [product.manufacturer]: 1 };
+      }
+    });
+    return manuFacturersObj;
+  }, [products]);
+
+  let manufacturers = [];
+
+  manufacturers = useMemo(() => {
+    for (let key in manuFacturersObj) {
+      manufacturers.push({ name: key, quantity: manuFacturersObj[key] });
     }
-  });
-
-  const manufacturers = [];
-
-  for (let key in manuFacturersObj) {
-    manufacturers.push({ name: key, quantity: manuFacturersObj[key] });
-  }
+    return manufacturers;
+  }, [manuFacturersObj]);
 
   const handleChange = (e) => {
     setBrandFilter(e.target.id);
@@ -78,7 +85,7 @@ const Brands = () => {
           <label htmlFor='all'>All</label>
           <span>({products.length})</span>
         </div>
-        <SearchingResults
+        <BrandsSearchingResults
           suggestions={suggestions}
           handleChange={handleChange}
           searchText={searchText}

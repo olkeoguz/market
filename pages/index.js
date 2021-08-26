@@ -1,12 +1,16 @@
 import { useState, useRef } from 'react';
-import Backdrop from '../components/Backdrop';
-import Brands from '../components/Brands';
-import Cart from '../components/Cart';
-import Header from '../components/Header';
-import ProductList from '../components/ProductList';
-import SideDrawer from '../components/SideDrawer';
-import Sorting from '../components/Sorting';
-import Tags from '../components/Tags';
+
+import Header from '../components/UI/Header';
+import Backdrop from '../components/UI/Backdrop';
+import SideDrawer from '../components/UI/SideDrawer';
+
+import Brands from '../components/filters/Brands';
+import Tags from '../components/filters/Tags';
+import Sorting from '../components/filters/Sorting';
+
+import ProductList from '../components/products/ProductList';
+import Cart from '../components/cart/Cart';
+
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -28,23 +32,25 @@ export default function Home() {
   }
 
   return (
-    <div className={styles.container} ref={scrollToProductsRef}>
+    <>
       <Header handleClick={handleDrawerToggleClick} />
-      <SideDrawer show={sideDrawerOpen} />
-      {backdrop}
-      <div className={styles.grid}>
-        <div className={styles.first}>
-          <Sorting />
-          <Brands />
-          <Tags />
-        </div>
-        <div className={styles.second}>
-          <ProductList scrollToTop={scrollToProductsRef} />
-        </div>
-        <div className={styles.third}>
-          <Cart />
+      <div className={styles.container} ref={scrollToProductsRef}>
+        <SideDrawer show={sideDrawerOpen} />
+        {backdrop}
+        <div className={styles.grid}>
+          <div className={styles.first}>
+            <Sorting />
+            <Brands />
+            <Tags />
+          </div>
+          <div className={styles.second}>
+            <ProductList scrollToTop={scrollToProductsRef} />
+          </div>
+          <div className={styles.third}>
+            <Cart />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
