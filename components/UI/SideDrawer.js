@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import Cart from '../cart/Cart';
-import Brands from '../filters/Brands';
-import Sorting from '../filters/Sorting';
-import Tags from '../filters/Tags';
+import Cart from '../Cart/Cart';
+import Brands from '../Filters/Brands';
+import Sorting from '../Filters/Sorting';
+import Tags from '../Filters/Tags';
 
 import { faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
