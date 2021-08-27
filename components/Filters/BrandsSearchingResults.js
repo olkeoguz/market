@@ -13,14 +13,16 @@ const BrandsSearchingResults = ({
   if (searchText.length === 0) {
     listItems = list.map((manu, index) => (
       <div key={index} className={styles.inputContainer}>
-        <input
-          type='radio'
-          id={manu.name}
-          checked={filter === `${manu.name}`}
-          onChange={handleChange}
-        />
-        <label htmlFor={manu.name}>{manu.name}</label>
-        <span>({manu.quantity})</span>
+        <label>
+          <input
+            type='radio'
+            id={manu.name}
+            checked={filter === `${manu.name}`}
+            onChange={handleChange}
+          />
+          {manu.name}
+          <span>({manu.quantity})</span>
+        </label>
       </div>
     ));
   }
@@ -36,14 +38,16 @@ const BrandsSearchingResults = ({
   else if (suggestions.length > 0) {
     listItems = suggestions.map((manu, index) => (
       <div key={index} className={styles.inputContainer}>
-        <input
-          type='radio'
-          id={manu.name}
-          checked={filter === `${manu.name}`}
-          onChange={handleChange}
-        />
-        <label htmlFor={manu.name}>{manu.name}</label>
-        <span>({manu.quantity})</span>
+        <label>
+          <input
+            type='radio'
+            id={manu.name}
+            checked={filter === `${manu.name}`}
+            onChange={handleChange}
+          />
+          {manu.name}
+          <span>({manu.quantity})</span>
+        </label>
       </div>
     ));
   }

@@ -14,16 +14,18 @@ const TagsSearchingResults = ({
   if (searchText.length === 0) {
     listItems = tags.map((tag, index) => (
       <div key={index} className={styles.inputContainer}>
-        <input
-          type='radio'
-          id={tag}
-          checked={tagFilter === `${tag}`}
-          onChange={handleChange}
-        />
-        <label htmlFor={tag}>{tag}</label>
-        <span>
-          ({products.filter((prod) => prod.tags.includes(`${tag}`)).length})
-        </span>
+        <label>
+          <input
+            type='radio'
+            id={tag}
+            checked={tagFilter === `${tag}`}
+            onChange={handleChange}
+          />
+          {tag}
+          <span>
+            ({products.filter((prod) => prod.tags.includes(`${tag}`)).length})
+          </span>
+        </label>
       </div>
     ));
   }
@@ -39,16 +41,18 @@ const TagsSearchingResults = ({
   else if (suggestions.length > 0) {
     listItems = suggestions.map((tag, index) => (
       <div key={index} className={styles.inputContainer}>
-        <input
-          type='radio'
-          id={tag}
-          checked={tagFilter === `${tag}`}
-          onChange={handleChange}
-        />
-        <label htmlFor={tag}>{tag}</label>
-        <span>
-          ({products.filter((prod) => prod.tags.includes(`${tag}`)).length})
-        </span>
+        <label>
+          <input
+            type='radio'
+            id={tag}
+            checked={tagFilter === `${tag}`}
+            onChange={handleChange}
+          />
+          {tag}
+          <span>
+            ({products.filter((prod) => prod.tags.includes(`${tag}`)).length})
+          </span>
+        </label>
       </div>
     ));
   }

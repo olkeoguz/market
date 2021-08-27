@@ -60,13 +60,15 @@ const Tags = () => {
           onChange={(e) => inputChangeHandler(e.target.value)}
         />
         <div className={styles.inputContainer}>
-          <input
-            type='radio'
-            id='all'
-            checked={tagFilter === 'all'}
-            onChange={handleChange}
-          />
-          <label htmlFor='all'>All</label>
+          <label>
+            <input
+              type='radio'
+              id='all'
+              checked={tagFilter === 'all'}
+              onChange={handleChange}
+            />
+            All
+          </label>
           <span>({products.length})</span>
         </div>
         <TagsSearchingResults

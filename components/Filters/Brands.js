@@ -1,5 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import * as productActions from '../../store/actions/products';
@@ -15,6 +14,12 @@ const Brands = () => {
   const [suggestions, setSuggestions] = useState([]);
 
   const dispatch = useDispatch();
+
+  // When filter change, dispatch the filtering action
+  useEffect(() => {
+    dispatch(productActions.filterProducts(brandFilter, tagFilt));
+    //eslint-disable-next-line
+  }, [brandFilter]);
 
   let manuFacturersObj = {};
 
@@ -47,12 +52,6 @@ const Brands = () => {
     setBrandFilter(e.target.id);
   };
 
-  // When filter change, dispatch the filtering action
-  useEffect(() => {
-    dispatch(productActions.filterProducts(brandFilter, tagFilt));
-    //eslint-disable-next-line
-  }, [brandFilter]);
-
   const inputChangeHandler = (text) => {
     let matches = [...manufacturers];
     if (text.length > 0) {
@@ -76,14 +75,16 @@ const Brands = () => {
           onChange={(e) => inputChangeHandler(e.target.value)}
         />
         <div className={styles.inputContainer}>
-          <input
-            type='radio'
-            id='all'
-            checked={brandFilter === 'all'}
-            onChange={handleChange}
-          />
-          <label htmlFor='all'>All</label>
-          <span>({products.length})</span>
+          <label>
+            <input
+              type='radio'
+              id='all'
+              checked={brandFilter === 'all'}
+              onChange={handleChange}
+            />
+            All
+            <span>({products.length})</span>
+          </label>
         </div>
         <BrandsSearchingResults
           suggestions={suggestions}
