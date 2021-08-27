@@ -5,12 +5,12 @@ import Header from '../components/UI/Header';
 import Backdrop from '../components/UI/Backdrop';
 import SideDrawer from '../components/UI/SideDrawer';
 
-import Brands from '../components/filters/Brands';
-import Tags from '../components/filters/Tags';
-import Sorting from '../components/filters/Sorting';
+import Brands from '../components/Filters/Brands';
+import Tags from '../components/Filters/Tags';
+import Sorting from '../components/Filters/Sorting';
 
-import ProductList from '../components/products/ProductList';
-import Cart from '../components/cart/Cart';
+import ProductList from '../components/Products/ProductList';
+import Cart from '../components/Cart/Cart';
 
 import { useDispatch } from 'react-redux';
 import * as productActions from '../store/actions/products';
