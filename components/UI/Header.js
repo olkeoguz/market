@@ -32,7 +32,7 @@ const Header = ({ handleClick }) => {
       />
       <div className={styles.totalPriceContainer}>
         <FontAwesomeIcon icon={faLock} />
-        <p className={styles.price}>₺ {cartTotal.toFixed(2)}</p>
+        <p className={styles.price}>₺ {Math.abs(cartTotal).toFixed(2)}</p>
       </div>
     </div>
   );
