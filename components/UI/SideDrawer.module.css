@@ -18,6 +18,13 @@
   transform: translateX(0);
 }
 
+.sideDrawer button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--primary);
+}
+
 @media (min-width: 1096px) {
   .sideDrawer {
     display: none;

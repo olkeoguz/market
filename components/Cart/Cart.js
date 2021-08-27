@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDispatch, useSelector } from 'react-redux';
 import * as cartActions from '../../store/actions/cart';
 
-const Cart = () => {
+const Cart = ({ mobile }) => {
   const { cartItems, cartTotal } = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
@@ -23,7 +23,6 @@ const Cart = () => {
   }
 
   const handleQuantity = (item, status) => {
-    console.log(cartItems);
     if (status === 'minus') {
       dispatch(cartActions.removeFromCart(item.id));
     } else {
@@ -33,7 +32,11 @@ const Cart = () => {
 
   if (!itemsInCart.length) {
     return (
-      <div className={styles.Cart}>
+      <div
+        className={
+          mobile ? `${styles.Cart}` : `${styles.Cart} ${styles.Sticky}`
+        }
+      >
         <div className={styles.emptyCart}>
           <FontAwesomeIcon
             icon={faShoppingCart}

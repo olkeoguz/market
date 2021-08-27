@@ -4,9 +4,12 @@
   width: 100%;
   padding: 1.5rem;
   background-color: var(--grid-item-bg);
-  position: sticky;
   top: 1rem;
   margin-bottom: 12px;
+}
+
+.Cart.Sticky {
+  position: sticky;
 }
 
 .CartMobile {

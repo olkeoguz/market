@@ -51,7 +51,7 @@ const ProductList = ({ scrollToTop }) => {
         <h2 className={styles.title}>Products</h2>
         <div className={styles.links}>
           <button
-            onClick={() => pickCategory('')}
+            onClick={() => pickCategory('all')}
             className={category === 'all' ? styles.active : ''}
           >
             All
