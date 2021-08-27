@@ -27,8 +27,10 @@
   line-height: 18px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .radio {
   border-radius: 50%;
+  cursor: pointer;
 }
